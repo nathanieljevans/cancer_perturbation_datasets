@@ -41,6 +41,16 @@ rna_expr=https://ndownloader.figshare.com/files/26261476
 
 # --------------------------------------------------------------------
 # --------------------------------------------------------------------
+# Gene Dependency - DepMap
+# paper: Robin M. Meyers, Jordan G. Bryan, James M. McFarland, Barbara A. Weir, ... David E. Root, William C. Hahn, Aviad Tsherniak. Computational correction of copy number effect improves specificity of CRISPR-Cas9 essentiality screens in cancer cells. Nature Genetics 2017 October 49:1779-1784. doi:10.1038/ng.3984
+# info: https://depmap.org/portal/download/
+# file name: CRISPR_gene_effect.csv
+# file size: 
+gene_dep=https://ndownloader.figshare.com/files/27902226
+# --------------------------------------------------------------------
+
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
 # cell line methylation data - ccle 
 # info: https://depmap.org/portal/download/
 # Citation: Mahmoud Ghandi, Franklin W. Huang, Judit Jané-Valbuena, Gregory V. Kryukov, ... Todd R. Golub, Levi A. Garraway & William R. Sellers. 2019. Next-generation characterization of the Cancer Cell Line Encyclopedia. Nature 569, 503-508 (2019).
@@ -53,6 +63,7 @@ CpG_rrbs='https://depmap.org/portal/download/api/download?file_name=ccle%2FCCLE_
 [ ! -d "./data/" ] && mkdir ./data/
 [ ! -d "./data/raw/" ] && mkdir ./data/raw/
 
+[ ! -f "./data/raw/CCLE_RRBS_TSS_CpG_clusters_20180614.txt" ] && wget $gene_dep -O ./data/raw/CCLE_RRBS_TSS_CpG_clusters_20180614.txt
 [ ! -f "./data/raw/ccle_expression.txt" ] && wget $rna_expr -O ./data/raw/ccle_expression.txt
 [ ! -f "./data/raw/ccle_info.txt" ] && wget $info -O ./data/raw/ccle_info.txt
 [ ! -f "./data/raw/ccle_mutation.txt" ] && wget $mut -O ./data/raw/ccle_mutation.txt
